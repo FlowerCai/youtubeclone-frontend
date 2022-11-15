@@ -1,0 +1,11 @@
+{
+  "semi": false,
+  "trailingComma": "none",
+  "singleQuote": true,
+  "printWidth": 80,
+  "eslintConfig": {
+    "rules": {
+      "semi": [2, "never"]
+    }
+  }
+}
