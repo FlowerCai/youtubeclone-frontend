@@ -8,7 +8,7 @@
     </div>
     <ul>
       <!-- <template v-if="$store.state.user"> -->
-      <template v-if="''">
+      <template v-if="appStore.user">
         <li>
           <div>
             <label for="video-upload" @click="isUploadShow = true">
@@ -51,8 +51,7 @@
               class="sc-AxhCb eSwYtm pointer"
               src="https://res.cloudinary.com/douy56nkf/image/upload/v1594060920/defaults/txxeacnh3vanuhsemfc8.png"
               alt="user-avatar"
-            />123</a
-          >
+          /></a>
         </li>
       </template>
 
@@ -70,13 +69,15 @@
       </template>
     </ul>
   </div>
-
+  <upload-video></upload-video>
   <upload-video v-if="isUploadShow" @close="isUploadShow = false" />
 </template>
 
 <script setup lang="ts">
+import { useAppStore } from '@/store'
 import { ref } from 'vue'
 const isUploadShow = ref(false)
+const appStore = useAppStore()
 </script>
 
 <style scoped></style>

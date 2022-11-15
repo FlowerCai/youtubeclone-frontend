@@ -9,8 +9,7 @@ export const request: AxiosInstance = axios.create({
 // 请求拦截器
 request.interceptors.request.use(
   (config: AxiosRequestConfig) => {
-    const appStore = useAppStore()
-    const user = appStore.user
+    const { user } = useAppStore()
     if (user && config.headers) {
       config.headers.Authorization = `Bearer ${user.token}`
     }

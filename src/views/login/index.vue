@@ -5,8 +5,8 @@
       <ul v-if="errors" class="errors">
         <!-- <ul v-if="true" class="errors"> -->
         <li v-for="(error, index) in errors" :key="index">
-          <!-- csf -->
-          {{ `${error.field} ${error.message}` }}
+          csf
+          <!-- {{ `${error.field} ${error.message}` }} -->
         </li>
       </ul>
       <input v-model="user.email" type="email" placeholder="email" />
@@ -32,7 +32,7 @@ const user = reactive({
   email: 'lpzmail@163.com',
   password: '123456'
 })
-const isLoading = ref(false)
+const isLoading = ref<boolean>(false)
 const errors = ref([])
 
 const handleSubmit = async () => {
@@ -40,7 +40,7 @@ const handleSubmit = async () => {
   errors.value = []
   try {
     const { data } = await login(user)
-    appStore.setUser(data.user)
+    await appStore.setUser(data.user)
     const redirect = (route.query.redirect || '/') as string
     router.push(redirect)
   } catch (err: any) {
