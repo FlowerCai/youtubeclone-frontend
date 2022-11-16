@@ -25,6 +25,11 @@ const routes: Array<RouteRecordRaw> = [
         meta: {
           requiresAuth: true
         }
+      },
+      {
+        path: 'watch/:videoId',
+        name: 'watch',
+        component: () => import('@/views/watch/index.vue')
       }
     ]
   },

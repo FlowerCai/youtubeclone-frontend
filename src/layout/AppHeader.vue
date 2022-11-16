@@ -8,7 +8,8 @@
     </div>
     <ul>
       <!-- <template v-if="$store.state.user"> -->
-      <template v-if="appStore.user">
+      <!-- <template v-if="appStore.user"> -->
+      <template v-if="'true'">
         <li>
           <div>
             <label for="video-upload" @click="isUploadShow = true">
@@ -69,12 +70,12 @@
       </template>
     </ul>
   </div>
-  <upload-video></upload-video>
-  <upload-video v-if="isUploadShow" @close="isUploadShow = false" />
+  <UploadVideo v-if="isUploadShow" @close="isUploadShow = false" />
 </template>
 
 <script setup lang="ts">
 import { useAppStore } from '@/store'
+import UploadVideo from '@/components/UploadVideo/index.vue'
 import { ref } from 'vue'
 const isUploadShow = ref(false)
 const appStore = useAppStore()
